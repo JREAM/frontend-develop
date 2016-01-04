@@ -121,6 +121,17 @@ gulp.task('third_party', function () {
 
 });
 
+// --------------------------------------------------------------------
+// Move Files to another desired path,
+// This will prevent git submodule changes for updates
+// --------------------------------------------------------------------
+gulp.task('move', function() {
+    gutil.log(gutil.colors.red('This is not implemented yet.'));
+    return false;
+
+    gulp.src(config.dist, { base: './' })
+        .pipe(gulp.dest('variable_path_here'));
+});
 
 // --------------------------------------------------------------------
 // Task: Watch

@@ -58,5 +58,8 @@ First create a SASS or JS file (or both) and run gulp, then check your output fo
 ## @Todo
 
 - Implement Babel for ECMA6/ECMA2015
-
+- Implement a `move` method to keep a submodule.
+- I may have to possibly add instructions to have the `config.yml` below the
+  project root so that the submodule remains intact and parent project commits
+work fine.
 

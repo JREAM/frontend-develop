@@ -1,0 +1,62 @@
+---
+# This should be a path to your live project for live-reloading
+browser_proxy: "localhost/your-project"
+
+# Change this to your relative template path to allow browser
+# live reload to also include your view files.
+template_files: "../app/views/**/*.volt"
+
+# -------------------------------------------------------
+# Source files you write
+# -------------------------------------------------------
+src:
+    sass: "src/sass/**/*.scss"
+    js:   "src/js/**/*.js"
+    img:  "src/img/*"
+
+# -------------------------------------------------------
+# Your Output Distributed Contented
+# -------------------------------------------------------
+dist:
+    # Paths to distribute your files
+    # * Change /dist to your applications public folder.
+    path_js:    "dist/js"
+    path_css:   "dist/css"
+    path_img:   "dist/img/"
+    path_fonts: "dist/fonts"
+
+    # These is your final application file
+    css: "app.min.css"
+    js:  "app.min.js"
+    css_dependency: "dependencies.min.css"
+    js_dependency:  "dependencies.min.js"
+
+# -------------------------------------------------------
+# Third Party installations moved to the public area
+# -------------------------------------------------------
+third_party:
+    css:
+        - "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        - "node_modules/font-awesome/css/font-awesome.min.css"
+        - "node_modules/devicons/css/devicons.min.css"
+    js:
+        - "node_modules/jquery/dist/jquery.min.js"
+        - "node_modules/bootstrap/dist/js/bootstrap.min.js"
+    js_map:
+        - "node_modules/jquery/dist/jquery.min.map"
+    fonts:
+        - "node_modules/font-awesome/fonts/FontAwesome.otf"
+        - "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.eot"
+        - "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.svg"
+        - "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf"
+        - "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.woff"
+        - "node_modules/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2"
+        - "node_modules/font-awesome/fonts/fontawesome-webfont.eot"
+        - "node_modules/font-awesome/fonts/fontawesome-webfont.svg"
+        - "node_modules/font-awesome/fonts/fontawesome-webfont.ttf"
+        - "node_modules/font-awesome/fonts/fontawesome-webfont.woff"
+        - "node_modules/font-awesome/fonts/fontawesome-webfont.woff2"
+        - "node_modules/devicons/fonts/devicons.eot"
+        - "node_modules/devicons/fonts/devicons.svg"
+        - "node_modules/devicons/fonts/devicons.ttf"
+        - "node_modules/devicons/fonts/devicons.woff"

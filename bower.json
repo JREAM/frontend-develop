@@ -1,0 +1,19 @@
+{
+    "name": "Dependencies",
+    "author": "Jesse Boyer",
+    "version": "0.0.2",
+    "homepage": "http://jream.com",
+    "license": "MIT",
+    "description": "",
+    "keywords": ["frontend"],
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "components",
+        "test",
+        "tests"
+      ],
+    "dependencies": {
+    }
+}

@@ -11,41 +11,34 @@
 
 ## Configuration
 
-- `/src` is where your custom files go.
-- `/dist` is where the final files will go.
-- `/config.yml` will let you change these paths.
-- Make sure to keep the `node_modules` folder in `.gitignore`
+- Run: `npm install`
+- Rename `config.yml.sample` to `config.yml`
+    - This is where you can configure everything.
+- Default Settings are as follows:
+    - `/src` is where your custom files go.
+    - `/dist` is where the final files will go.
 
-## @Todo
-
-- Implement Babel
-
-## Installation
-This will install from `package.json`.
-
-    npm install
-
-## JS (JavaScript)
+### JS (JavaScript)
 
 Put all custom JS in the `js` folder, it will be compiled down.
 
-## SASS (CSS/StyleSheets)
+### SASS (CSS/StyleSheets)
 
 Put all custom SASS in the `sass` folder, it will be compiled down.
 
-## IMG (Images)
+### IMG (Images)
 
 Put any images you want compressed into the `img` folder, it will be compressed.
 
-## Third Party
+### Third Party
 
 Third party data comes from `package.json`. This gathers data from the `node_modules` folder.
 
-## Browser Live Reload
+### Browser Live Reload
 
 You must set the proxy to where your local site is hosted for live refresh.
 
-## Running
+### Usage
 
 First create a SASS or JS file (or both) and run gulp, then check your output folder.
 
@@ -61,3 +54,9 @@ First create a SASS or JS file (or both) and run gulp, then check your output fo
 ## Shoutouts
 
 [Dan Sackett](https://github.com/dansackett) - Got me into Gulp :)
+
+## @Todo
+
+- Implement Babel for ECMA6/ECMA2015
+
+

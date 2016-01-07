@@ -67,7 +67,7 @@ The **default** distribution, or rendered file names are:
 
 The above files would go in your HTML file, and any other extra items under `/third-party` if you wanted them included.
 
-#### Change Configation Output
+#### Change Configuration Output
 To change the names and locations of your output, edit `config-gulp.yml`.
 Modify whatever you like. However, you should **not** edit the `third_party` parameters.
 

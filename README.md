@@ -1,10 +1,9 @@
-# Frontend-Dev
+# Frontend-Develop
 
 - This is a build tool to speed up front-end development.
 - Everything is run through the terminal, eg: `gulp watch`.
 - I currently run this on Ubuntu for development.
 - You do not install the `npm packages` on your live server.
-- You can write ECMA6 and it will parse down to working JS.
 - I am using `node v0.12.0`.
 
 ## What is included?

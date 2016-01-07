@@ -1,42 +1,91 @@
 # Frontend-Dev
 
 - This is a build tool to speed up front-end development.
-- Only the output code should be accessible through the web.
+- Everything is run through the terminal, eg: `gulp watch`.
+- I currently run this on Ubuntu for development.
+- You do not install the `npm packages` on your live server.
+- You can write ECMA6 and it will parse down to working JS.
+- I am using `node v0.12.0`.
+
+## What is included?
+These are some of the front-end tools at your disposal.
+
+- Babel
+- Bootstrap 3
+- DevIcons
+- Font-Awesome
+- jQuery 2
+- jQuery Lazyload
+- React + JSX
+- Select2 (And Bootstrap CSS)
+- Note: jQuery + Bootstrap are compiled into dependencies.min.js & dependencies.min.css, you can use this if you like or just use the files from the `third-party/` folder.
 
 ## Requirements
+You must have the following packages installed on your system:
 
 - nodejs
 - npm
 - bower (optional)
 
-## Configuration
+## Setup & Configuration
 
-- Run: `npm install`
-- Rename `config.yml.sample` to `config.yml`
-    - This is where you can configure everything.
-- Default Settings are as follows:
-    - `/src` is where your custom files go.
-    - `/dist` is where the final files will go.
+Setup is very easy, it takes one command: `npm install`
 
-### JS (JavaScript)
+It may take a few moments to install, but when it is complete you are good to go. Using `babel-preset-es2015` includes babel for all NodeJS versions.
 
-Put all custom JS in the `js` folder, it will be compiled down.
+To use the default configuration rename: `config-gulp.yml.sample` to `config-gulp.yml`.
+You can also place this a folder below (see why).
 
-### SASS (CSS/StyleSheets)
+#### Git Submodule In Your Project
+If you'd like to run this up to date in an your project while preserving this as a `git module` you would do the following:
 
-Put all custom SASS in the `sass` folder, it will be compiled down.
+    cd /your-app/
+    git submodule add git@github.com:JREAM/frontend-develop.git develop
+    cp develop/config-gulp.yml.sample config-gulp.yml
+    cd develop
+    gulp
 
-### IMG (Images)
+#### Changing Configuration
+The default directories are as follows:
 
-Put any images you want compressed into the `img` folder, it will be compressed.
+- `/src` - Your custom files, your files can be named anything.
+    - `/js`
+    - `/sass`
+    - `/img`
+- `dist` - Your rendered, combined and compressed content
+    - `/css`
+    - `/fonts`
+    - `/img`
+    - `/js`
+    - `/third-party`
+
+The **default** distribution, or rendered file names are:
+
+- `app.min.css`
+- `app.min.js`
+- `dependencies.min.css`
+- `dependencies.min.js`
+
+The above files would go in your HTML file, and any other extra items under `/third-party` if you wanted them included.
+
+#### Change Configation Output
+To change the names and locations of your output, edit `config-gulp.yml`.
+Modify whatever you like. However, you should **not** edit the `third_party` parameters.
+
+#### Live Browser Reload
+To get the live browser reloading running you need to set **two values**.
+
+**The first** is the location to your projects main entry point in `config-gulp.yml`.
+Change this line `browser_proxy: "localhost/your-project"` to your path.
+
+**The second** is the location of your view files in `config-gulp.yml`.
+Change this line `template_files: "../app/views/**/*.volt"` to your relative view path.
+
+All you have to do now is run `gulp watch` and BrowserSync will reload all your SASS/JS/HTML editing on the fly.
 
 ### Third Party
 
 Third party data comes from `package.json`. This gathers data from the `node_modules` folder.
-
-### Browser Live Reload
-
-You must set the proxy to where your local site is hosted for live refresh.
 
 ### Usage
 
@@ -54,12 +103,3 @@ First create a SASS or JS file (or both) and run gulp, then check your output fo
 ## Shoutouts
 
 [Dan Sackett](https://github.com/dansackett) - Got me into Gulp :)
-
-## @Todo
-
-- Implement Babel for ECMA6/ECMA2015
-- Implement a `move` method to keep a submodule.
-- I may have to possibly add instructions to have the `config.yml` below the
-  project root so that the submodule remains intact and parent project commits
-work fine.
-

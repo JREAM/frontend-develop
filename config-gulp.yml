@@ -24,10 +24,14 @@ dist:
     path_css:   "dist/css"
     path_img:   "dist/img/"
     path_fonts: "dist/fonts"
+    path_third_party_js: "dist/third-party/js"
+    path_third_party_css: "dist/third-party/css"
 
     # These is your final application file
     css: "app.min.css"
     js:  "app.min.js"
+
+    # This only contains jQuery + Bootstrap in CSS and JS
     css_dependency: "dependencies.min.css"
     js_dependency:  "dependencies.min.js"
 
@@ -42,7 +46,6 @@ third_party:
     js:
         - "node_modules/jquery/dist/jquery.min.js"
         - "node_modules/bootstrap/dist/js/bootstrap.min.js"
-    js_map:
         - "node_modules/jquery/dist/jquery.min.map"
     fonts:
         - "node_modules/font-awesome/fonts/FontAwesome.otf"
@@ -60,3 +63,21 @@ third_party:
         - "node_modules/devicons/fonts/devicons.svg"
         - "node_modules/devicons/fonts/devicons.ttf"
         - "node_modules/devicons/fonts/devicons.woff"
+
+third_party_move_only:
+    css:
+        - "node_modules/bootstrap/dist/css/bootstrap.min.css"
+        - "node_modules/font-awesome/css/font-awesome.min.css"
+        - "node_modules/devicons/css/devicons.min.css"
+        - "node_modules/select2/dist/css/select2.min.css"
+        - "node_modules/select2-bootstrap-css/select2-bootstrap.min.css"
+    js:
+        - "node_modules/jquery/dist/jquery.min.js"
+        - "node_modules/bootstrap/dist/js/bootstrap.min.js"
+        - "node_modules/jquery/dist/jquery.min.map"
+        - "node_modules/react/dist/react.min.js"
+        - "node_modules/react/dist/react-with-addons.min.js"
+        - "node_modules/jquery-lazyload/jquery.lazyload.js"
+        - "node_modules/jquery-lazyload/jquery.scrollstop.js"
+        - "node_modules/select2/dist/js/select2.min.js"
+        - "node_modules/jquery/dist/jquery.min.map"

@@ -5,11 +5,12 @@
 var gulp            = require("gulp"),
     fs              = require('fs'),
     yaml            = require('js-yaml'),
+    babel           = require("gulp-babel")
     sass            = require("gulp-sass"),
     concat          = require("gulp-concat"),
     watch           = require("gulp-watch"),
     plumber         = require("gulp-plumber"),
-    minify_css      = require("gulp-minify-css"),
+    cssnano         = require("gulp-cssnano"),
     uglify          = require("gulp-uglify"),
     sourcemaps      = require("gulp-sourcemaps"),
     notify          = require("gulp-notify"),
@@ -20,19 +21,27 @@ var gulp            = require("gulp"),
     autoprefixer    = require("autoprefixer"),
     pngquant        = require("imagemin-pngquant"),
     browserSync     = require("browser-sync"),
-    watchify        = require('watchify');
+    watchify        = require('watchify'),
+    config          = null;
 
 // --------------------------------------------------------------------
 // Settings
 // --------------------------------------------------------------------
-
-var config = yaml.load(fs.readFileSync('config.yml', 'utf-8'));
+if (fs.existsSync('../config-gulp.yml')) {
+    config = yaml.load(fs.readFileSync('../config-gulp.yml', 'utf-8'));
+} else if (fs.existsSync('config-gulp.yml')) {
+    config = yaml.load(fs.readFileSync('config-gulp.yml', 'utf-8'));
+} else {
+   gutil.log(gutil.colors.bgRed("Error: config-gulp.yml not found in . or ../"));
+   gutil.log("Please view the README.md to setup.");
+   process.exit(1);
+}
 
 // --------------------------------------------------------------------
 // Error Handler
 // --------------------------------------------------------------------
-var onError = function(err) {
-    console.log(err);
+var onError = function(error) {
+    gutil.log(gutil.colors.red(error));
     this.emit('end');
 };
 
@@ -49,9 +58,9 @@ gulp.task('sass', function() {
         .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
         .pipe(concat(config.dist.css))
         .pipe(gulp.dest(config.dist.path_css))
-        .pipe(minify_css())
+        .pipe(cssnano())
         .pipe(sourcemaps.init())
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(config.dist.path_css))
         .pipe(browserSync.reload({stream: true}));
 });
@@ -66,6 +75,7 @@ gulp.task('js', function() {
         .pipe(plumber({
             errorHandler: onError
         }))
+        .pipe(babel())
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(uglify())
@@ -111,14 +121,16 @@ gulp.task('third_party', function () {
         .pipe(concat(config.dist.js_dependency))
         .pipe(gulp.dest(config.dist.path_js));
 
-    // Copy any map files
-    gulp.src(config.third_party.js_map)
-        .pipe(gulp.dest(config.dist.path_js));
-
-    // These are plain files
+    // Copy any font files
     gulp.src(config.third_party.fonts)
         .pipe(gulp.dest(config.dist.path_fonts));
 
+    // Copy move only files
+    gulp.src(config.third_party_move_only.css)
+        .pipe(gulp.dest(config.dist.path_third_party_css));
+
+    gulp.src(config.third_party_move_only.js)
+        .pipe(gulp.dest(config.dist.path_third_party_js));
 });
 
 // --------------------------------------------------------------------

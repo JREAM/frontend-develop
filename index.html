@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Frontend-develop by JREAM</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Frontend-develop</h1>
+        <p>Front End Tool using Gulp which includes Brower Sync, Babel, React, BS3, jQuery, etc.</p>
+
+        <p class="view"><a href="https://github.com/JREAM/frontend-develop">View the Project on GitHub <small>JREAM/frontend-develop</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/JREAM/frontend-develop/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/JREAM/frontend-develop/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/JREAM/frontend-develop">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="frontend-develop" class="anchor" href="#frontend-develop" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Frontend-Develop</h1>
+
+<ul>
+<li>This is a build tool to speed up front-end development.</li>
+<li>Everything is run through the terminal, eg: <code>gulp watch</code>.</li>
+<li>I currently run this on Ubuntu for development.</li>
+<li>You do not install the <code>npm packages</code> on your live server.</li>
+<li>I am using <code>node v0.12.0</code>.</li>
+</ul>
+
+<h2>
+<a id="what-is-included" class="anchor" href="#what-is-included" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is included?</h2>
+
+<p>These are some of the front-end tools at your disposal.</p>
+
+<ul>
+<li>Babel</li>
+<li>Bootstrap 3</li>
+<li>DevIcons</li>
+<li>Font-Awesome</li>
+<li>jQuery 2</li>
+<li>jQuery Lazyload</li>
+<li>React + JSX</li>
+<li>Select2 (And Bootstrap CSS)</li>
+<li>Note: jQuery + Bootstrap are compiled into dependencies.min.js &amp; dependencies.min.css, you can use this if you like or just use the files from the <code>third-party/</code> folder.</li>
+</ul>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>You must have the following packages installed on your system:</p>
+
+<ul>
+<li>nodejs</li>
+<li>npm</li>
+<li>bower (optional)</li>
+</ul>
+
+<h2>
+<a id="setup--configuration" class="anchor" href="#setup--configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup &amp; Configuration</h2>
+
+<p>Setup is very easy, it takes one command: <code>npm install</code></p>
+
+<p>It may take a few moments to install, but when it is complete you are good to go. Using <code>babel-preset-es2015</code> includes babel for all NodeJS versions.</p>
+
+<p>To use the default configuration rename: <code>config-gulp.yml.sample</code> to <code>config-gulp.yml</code>.
+You can also place this a folder below (see why).</p>
+
+<h4>
+<a id="git-submodule-in-your-project" class="anchor" href="#git-submodule-in-your-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Git Submodule In Your Project</h4>
+
+<p>If you'd like to run this up to date in an your project while preserving this as a <code>git module</code> you would do the following:</p>
+
+<pre><code>cd /your-app/
+git submodule add git@github.com:JREAM/frontend-develop.git develop
+cp develop/config-gulp.yml.sample config-gulp.yml
+cd develop
+gulp
+</code></pre>
+
+<h4>
+<a id="changing-configuration" class="anchor" href="#changing-configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changing Configuration</h4>
+
+<p>The default directories are as follows:</p>
+
+<ul>
+<li>
+<code>/src</code> - Your custom files, your files can be named anything.
+
+<ul>
+<li><code>/js</code></li>
+<li><code>/sass</code></li>
+<li><code>/img</code></li>
+</ul>
+</li>
+<li>
+<code>dist</code> - Your rendered, combined and compressed content
+
+<ul>
+<li><code>/css</code></li>
+<li><code>/fonts</code></li>
+<li><code>/img</code></li>
+<li><code>/js</code></li>
+<li><code>/third-party</code></li>
+</ul>
+</li>
+</ul>
+
+<p>The <strong>default</strong> distribution, or rendered file names are:</p>
+
+<ul>
+<li><code>app.min.css</code></li>
+<li><code>app.min.js</code></li>
+<li><code>dependencies.min.css</code></li>
+<li><code>dependencies.min.js</code></li>
+</ul>
+
+<p>The above files would go in your HTML file, and any other extra items under <code>/third-party</code> if you wanted them included.</p>
+
+<h4>
+<a id="change-configuration-output" class="anchor" href="#change-configuration-output" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Change Configuration Output</h4>
+
+<p>To change the names and locations of your output, edit <code>config-gulp.yml</code>.
+Modify whatever you like. However, you should <strong>not</strong> edit the <code>third_party</code> parameters.</p>
+
+<h4>
+<a id="live-browser-reload" class="anchor" href="#live-browser-reload" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Live Browser Reload</h4>
+
+<p>To get the live browser reloading running you need to set <strong>two values</strong>.</p>
+
+<p><strong>The first</strong> is the location to your projects main entry point in <code>config-gulp.yml</code>.
+Change this line <code>browser_proxy: "localhost/your-project"</code> to your path.</p>
+
+<p><strong>The second</strong> is the location of your view files in <code>config-gulp.yml</code>.
+Change this line <code>template_files: "../app/views/**/*.volt"</code> to your relative view path.</p>
+
+<p>All you have to do now is run <code>gulp watch</code> and BrowserSync will reload all your SASS/JS/HTML editing on the fly.</p>
+
+<h3>
+<a id="third-party" class="anchor" href="#third-party" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Third Party</h3>
+
+<p>Third party data comes from <code>package.json</code>. This gathers data from the <code>node_modules</code> folder.</p>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>First create a SASS or JS file (or both) and run gulp, then check your output folder.</p>
+
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gulp</code></td>
+<td>Runs: All Commands except Watch</td>
+</tr>
+<tr>
+<td><code>gulp img</code></td>
+<td>Runs: Image Minifier</td>
+</tr>
+<tr>
+<td><code>gulp js</code></td>
+<td>Runs: Custom JS</td>
+</tr>
+<tr>
+<td><code>gulp sass</code></td>
+<td>Runs: Custom SASS</td>
+</tr>
+<tr>
+<td><code>gulp third_party</code></td>
+<td>Runs: Compiles Third Party JS and CSS</td>
+</tr>
+<tr>
+<td><code>gulp watch</code></td>
+<td>Runs: Browser Live Reload of JS, SASS, IMG</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="shoutouts" class="anchor" href="#shoutouts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shoutouts</h2>
+
+<p><a href="https://github.com/dansackett">Dan Sackett</a> - Got me into Gulp :)</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/JREAM">JREAM</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3106599-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>

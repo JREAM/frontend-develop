@@ -24,9 +24,11 @@ var gulp            = require("gulp"),
     watchify        = require('watchify'),
     config          = null;
 
+
 // --------------------------------------------------------------------
 // Settings
 // --------------------------------------------------------------------
+
 if (fs.existsSync('../config-gulp.yml')) {
     config = yaml.load(fs.readFileSync('../config-gulp.yml', 'utf-8'));
 } else if (fs.existsSync('config-gulp.yml')) {
@@ -37,17 +39,21 @@ if (fs.existsSync('../config-gulp.yml')) {
    process.exit(1);
 }
 
+
 // --------------------------------------------------------------------
 // Error Handler
 // --------------------------------------------------------------------
+
 var onError = function(error) {
     gutil.log(gutil.colors.red(error));
     this.emit('end');
 };
 
+
 // --------------------------------------------------------------------
 // Task: Sass
 // --------------------------------------------------------------------
+
 gulp.task('sass', function() {
 
     return gulp.src([config.src.sass])
@@ -133,10 +139,12 @@ gulp.task('third_party', function () {
         .pipe(gulp.dest(config.dist.path_third_party_js));
 });
 
+
 // --------------------------------------------------------------------
 // Move Files to another desired path,
 // This will prevent git submodule changes for updates
 // --------------------------------------------------------------------
+
 gulp.task('move', function() {
     gutil.log(gutil.colors.red('This is not implemented yet.'));
     return false;
@@ -144,6 +152,7 @@ gulp.task('move', function() {
     gulp.src(config.dist, { base: './' })
         .pipe(gulp.dest('variable_path_here'));
 });
+
 
 // --------------------------------------------------------------------
 // Task: Watch
